@@ -1,0 +1,25 @@
+{
+  "name": "hook-test",
+  "version": "1.0.0",
+  "description": "Allows users to automatically test commits before they go through using a testing method chosen by the user. Will automatically change version number and tag commit based on the commit types: fix, feat, and BREAKING CHANGE\"",
+  "main": "src/index.js",
+  "bin": {
+    "create-hook-test": "src/setup.js"
+  },
+  "scripts": {
+    "test": "exit 0",
+    "commit-msg-hook": "src/githooks/commitMsg.js",
+    "post-commit-hook": "src/githooks/postCommit.js",
+    "prepare": "git config core.hooksPath ./githooks/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlSchader/hook-test.git"
+  },
+  "author": "Carl Schader",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/CarlSchader/hook-test/issues"
+  },
+  "homepage": "https://github.com/CarlSchader/hook-test#readme"
+}
