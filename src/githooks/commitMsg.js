@@ -7,7 +7,6 @@ const process = require('process');
 
 const commitMessagePath = process.argv[2];
 const commitMessage = fs.readFileSync(commitMessagePath).toString();
-console.log(commitMessage)
 
 try {
     execSync('npm run test');
@@ -18,6 +17,7 @@ try {
 
 function getCommitType(message) {
     const regex = /^(fix|feat|BREAKING CHANGE):[\s\S]*$/;
+    console.log(message.match(regex))
     if (message.match(regex)) {
         return message.substring(0, message.indexOf(':'));
     } else {
