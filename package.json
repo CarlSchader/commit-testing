@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "bin": "src/setup.js",
   "scripts": {
-    "test": "exit 0",
+    "test": "exit 1",
     "commit-msg-hook": "src/githooks/commitMsg.js",
     "post-commit-hook": "src/githooks/postCommit.js",
     "prepare": "git config core.hooksPath ./githooks/"
