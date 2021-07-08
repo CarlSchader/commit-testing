@@ -1,5 +1,10 @@
 #! /usr/bin/env node
 
+/**
+ * Author: Carl Schader
+ * GitHub: https://github.com/CarlSchader
+ */
+
 const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
@@ -17,7 +22,7 @@ try {
 
 function getCommitType(message) {
     const regex = /^(fix|feat|BREAKING CHANGE):[\s\S]*/;
-    
+
     if (regex.test(message)) {
         return message.substring(0, message.indexOf(':'));
     } else {
