@@ -133,9 +133,9 @@ readline.question('Add prepare script to automatically set git-hooks folder on n
         );
 
         if (!packageJson.hasOwnProperty('scripts')) {
-            packageJson['scripts'] = { prepare: `git config core.hooksPath ./githooks/` };
+            packageJson['scripts'] = { prepare: `git config core.hooksPath ./git-hooks/` };
         } else {
-            packageJson.scripts['prepare'] = `git config core.hooksPath ./githooks/`;
+            packageJson.scripts['prepare'] = `git config core.hooksPath ./git-hooks/`;
         }
 
         fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2));
