@@ -1,5 +1,5 @@
 {
-  "name": "test-hook",
+  "name": "commit-testing",
   "version": "1.2.1",
   "description": "Allows users to automatically test commits before they go through using a testing method chosen by the user. Will automatically change version number and tag commit based on the commit types: fix, feat, and BREAKING CHANGE\"",
   "main": "src/index.js",
@@ -12,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CarlSchader/test-hook.git"
+    "url": "git+https://github.com/CarlSchader/commit-testing.git"
   },
   "author": "Carl Schader",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/CarlSchader/test-hook/issues"
+    "url": "https://github.com/CarlSchader/commit-testing/issues"
   },
-  "homepage": "https://github.com/CarlSchader/test-hook#readme"
+  "homepage": "https://github.com/CarlSchader/commit-testing#readme"
 }
