@@ -28,7 +28,22 @@ var packageJson = JSON.parse(
     fs.readFileSync(path.join(process.cwd(), 'package.json'))
 );
 
-execSync('git tag ' + packageJson.version);`;
+const commitMessagePath = path.join(process.cwd(), '.git', 'COMMIT_EDITMSG');
+const commitMessage = fs.readFileSync(commitMessagePath).toString();
+
+function getCommitType(message) {
+    const regex = /^(fix|feat|BREAKING CHANGE):[\s\S]*/;
+    
+    if (regex.test(message)) {
+        return message.substring(0, message.indexOf(':'));
+    } else {
+        return false;
+    }
+}
+
+if (getCommitType(commitMessage)) {
+    execSync('git tag ' + packageJson.version);
+}`;
 
 const commitMsgData = `#! /usr/bin/env node
 
@@ -49,7 +64,7 @@ try {
 
 function getCommitType(message) {
     const regex = /^(fix|feat|BREAKING CHANGE):[\s\S]*/;
-    console.log(regex.test(message))
+    
     if (regex.test(message)) {
         return message.substring(0, message.indexOf(':'));
     } else {
@@ -58,7 +73,6 @@ function getCommitType(message) {
 }
 
 const commitType = getCommitType(commitMessage);
-console.log(commitType);
 if (commitType) {
     var packageJson = JSON.parse(
         fs.readFileSync(path.join(process.cwd(), 'package.json'))

@@ -17,7 +17,7 @@ try {
 
 function getCommitType(message) {
     const regex = /^(fix|feat|BREAKING CHANGE):[\s\S]*/;
-    console.log(regex.test(message))
+    
     if (regex.test(message)) {
         return message.substring(0, message.indexOf(':'));
     } else {
@@ -26,7 +26,6 @@ function getCommitType(message) {
 }
 
 const commitType = getCommitType(commitMessage);
-console.log(commitType);
 if (commitType) {
     var packageJson = JSON.parse(
         fs.readFileSync(path.join(process.cwd(), 'package.json'))
