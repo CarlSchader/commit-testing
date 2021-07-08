@@ -48,7 +48,7 @@ try {
 }
 
 function getCommitType(message) {
-    const regex = /^(fix|feat|BREAKING CHANGE):[\s\S]$/;
+    const regex = /^(fix|feat|BREAKING CHANGE):[\s\S]*/;
     console.log(regex.test(message))
     if (regex.test(message)) {
         return message.substring(0, message.indexOf(':'));
