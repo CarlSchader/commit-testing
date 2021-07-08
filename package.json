@@ -1,6 +1,6 @@
 {
   "name": "hook-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Allows users to automatically test commits before they go through using a testing method chosen by the user. Will automatically change version number and tag commit based on the commit types: fix, feat, and BREAKING CHANGE\"",
   "main": "src/index.js",
   "bin": {
