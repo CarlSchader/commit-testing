@@ -2,12 +2,11 @@
 Tool to help automate unit testing, versioning, and tagging of commits for node projects using git.
 
 # Installation
+To set up git-hooks for automated testing, versioning, and tagging:
 ```
 npm install --save-dev commit-testing
 npx commit-testing
 ```
-
-If you want to configure the hooks on npm install so all developers must use them, don't type "no" when prompted and hit enter.
 
 # Automated Testing
 In package.json set the "test" script under "scripts" to whatever you want to use for testing.

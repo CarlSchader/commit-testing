@@ -9,12 +9,8 @@ const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const process = require('process');
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
-const gitHooksPath = path.join(process.cwd(), 'git-hooks');
+const gitHooksPath = path.join(process.cwd(), '.git', 'hooks');
 
 if (!fs.existsSync(gitHooksPath)) {
     fs.mkdirSync(gitHooksPath);
@@ -125,21 +121,3 @@ try {
 execSync(`chmod +x ${path.join(gitHooksPath, 'post-commit')}`);
 
 execSync(`chmod +x ${path.join(gitHooksPath, 'commit-msg')}`);
-
-readline.question('Add prepare script to automatically set git-hooks folder on npm install (recommended)? (enter "no" for no, anything else for yes): ', answer => {
-    if (answer !== 'no') {
-        let packageJson = JSON.parse(
-            fs.readFileSync(path.join(process.cwd(), 'package.json'))
-        );
-
-        if (!packageJson.hasOwnProperty('scripts')) {
-            packageJson['scripts'] = { prepare: `git config core.hooksPath ./git-hooks/` };
-        } else {
-            packageJson.scripts['prepare'] = `git config core.hooksPath ./git-hooks/`;
-        }
-
-        fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2));
-    }
-
-    readline.close();
-});

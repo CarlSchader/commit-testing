@@ -1,14 +1,13 @@
 {
   "name": "commit-testing",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "Allows users to automatically test commits before they go through using a testing method chosen by the user. Will automatically change version number and tag commit based on the commit types: fix, feat, and BREAKING CHANGE\"",
   "main": "src/index.js",
   "bin": "src/setup.js",
   "scripts": {
     "test": "exit 0",
     "commit-msg-hook": "src/githooks/commitMsg.js",
-    "post-commit-hook": "src/githooks/postCommit.js",
-    "prepare": "git config core.hooksPath ./git-hooks/"
+    "post-commit-hook": "src/githooks/postCommit.js"
   },
   "repository": {
     "type": "git",
