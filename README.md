@@ -9,8 +9,8 @@ npx commit-testing
 ```
 
 # Automated Testing
-In package.json set the "test" script under "scripts" to whatever you want to use for testing.
-Example assuming jest is installed:
+In your package.json, set the "test" script under "scripts" to whatever you want to use for testing.
+(example assuming jest is installed):
 ```
 scripts: {
     "test": "jest"
@@ -23,14 +23,15 @@ git add .
 git commit -m "auto testing"
 ```
 
-If the test pass the commit will go through, else it will be rejected.
+If the tests pass, the commit will go through, else it will be rejected.
 
-If you want to skip testing just commit using the --no-verify flag:
+If you want to skip testing, just commit using the --no-verify flag:
 ```
 git commit --no-verify -m "no testing please"
 ```
+
 # Automated Versioning and Tagging
-If you want to automatically increment your version number <major>.<minor>.<patch> and tag your commit, just add one of the prefixes to your commit message followed by a colon(:)
+If you want to automatically increment your version number (major.minor.patch) and tag your commit, just add one of the conventional prefixes to your commit message followed by a colon(:)
 
     fix: increment patch 1.2.3 -> 1.2.4
     feat: increment minor 1.2.3 -> 1.3.0
